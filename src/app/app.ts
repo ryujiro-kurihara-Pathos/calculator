@@ -95,7 +95,6 @@ export class App {
           if(this.changeLastValue) {
             const curNumber: number = Number(this.currentNumber);
 
-
             // 今やってるところ
             if(this.lastOperator === '+') {
               this.currentNumber = (curNumber + Number(this.lastValue)).toString();
