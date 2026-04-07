@@ -143,13 +143,14 @@ export class App {
       if(this.isNewInput) {
         if(ope === '=') {
           this.lastOperator = this.operator;
-          this.lastValue = this.currentNumber;
+          const curNumberString: string = this.currentNumber;
 
-          if(this.operator === '+') this.currentNumber = this.currentNumber;
-          else if(this.operator === '-') this.currentNumber = (-Number(this.currentNumber)).toString();
+          if(this.operator === '+') this.currentNumber = (Number(this.currentNumber) + Number(this.lastValue)).toString();
+          else if(this.operator === '-') this.currentNumber = (-Number(this.currentNumber) + Number(this.lastValue)).toString();
           else if(this.operator === '×') this.currentNumber = (Number(this.currentNumber) * Number(this.currentNumber)).toString();
           else if(this.operator === '÷') this.currentNumber = (1 / Number(this.currentNumber)).toString();
 
+          this.lastValue = curNumberString;
           this.previousNumber = null;
           this.operator = null;
         } else {
